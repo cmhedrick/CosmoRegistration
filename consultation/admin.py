@@ -1,4 +1,4 @@
-from consultation.models import Head, TextResponse, Choose
+from consultation.models import Consult, TextResponse, Choose
 from django.contrib import admin
 
 class ChooseInline(admin.TabularInline):
@@ -9,8 +9,8 @@ class TextInline(admin.TabularInline):
     model = TextResponse
     extra = 1
 
-class HeadAdmin(admin.ModelAdmin):
+class ConsultAdmin(admin.ModelAdmin):
     inlines = [ChooseInline, TextInline]
     
 
-admin.site.register(Head, HeadAdmin)
+admin.site.register(Consult, ConsultAdmin)

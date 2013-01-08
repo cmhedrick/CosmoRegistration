@@ -1,0 +1,9 @@
+<h1>{{ consult.question }}</h1>
+
+<ul>
+{% for choose in consult.choose_set.all %}
+    <li>{{ choose }} - - {{ choose.casts }} casts{{ choose.casts|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="/polls/{{ poll.id }}/">Vote again?</a>

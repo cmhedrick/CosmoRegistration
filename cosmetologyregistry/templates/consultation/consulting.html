@@ -1,0 +1,10 @@
+<h1>{{ consult.question }}</h1>
+
+<form action="/consultation/{{ consult.id }}/cast/" method="post">
+{% csrf_token %}
+{% for choose in consult.choose_set.all %}
+    <input type="radio" name="choose" id="choose{{ forloop.counter }}" value="{{ choose.id }}" />
+    <label for="choose{{ forloop.counter }}">{{ choose }}</label><br />
+{% endfor %}
+<input type="submit" value="cast" />
+</form>

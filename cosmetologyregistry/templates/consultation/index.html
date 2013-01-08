@@ -1,0 +1,9 @@
+{% if consullinks %}
+    <ul>
+    {% for consult in consullinks %}
+        <li><a href="/consultation/{{ consult.id }}/">{{ consult.question }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Consultation Questions were removed</p>
+{% endif %}
