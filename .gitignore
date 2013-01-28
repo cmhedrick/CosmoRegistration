@@ -3,4 +3,5 @@
 *.pot
 *.swp
 venv
-cosmetology.db
+database
+settings_dev.py
