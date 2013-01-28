@@ -18,17 +18,10 @@
         text-decoration: none;
         border-radius:10px;
         color: #FFFFFF;
-        margin-right:10px;
-        margin-left:10px;
-      font-family: 'Mate SC', serif; 
-     margin:15px; 
+        margin-right:0.25%;
+        margin-left:0.25%;
+        font-family: 'Mate SC', serif;
     }
-    img {
-        border: inset;
-        padding: 20px;
-        background-color: #555;
-        margin:15px;
-        }
     section {
         border: solid;
         background-color: #555;
@@ -36,3 +29,32 @@
         margin: 10px;
     }
 
+    .saying {
+        font-family:'Dawning of a New Day', cursive;
+        font-size:30px;
+    }
+    p {
+        text-align: left;
+    }
+    img {
+        border: inset;
+        padding: 20px;
+        background-color: #555;
+        }
+    .col-right {
+        float:right;
+        width: 70%;
+    }
+    .col-left {
+        border: medium solid;
+        height: 450px;
+        padding: 10px;
+        width: 25%;
+    }
+    footer {
+        margin: 20px;
+        position: relative;
+    }
+    .col-left>a {
+        line-height: 50px;
+    }

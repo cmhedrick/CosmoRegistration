@@ -26,9 +26,9 @@
         text-decoration: none;
         border-radius:10px;
         color: #FFFFFF;
-        margin-right:10px;
-        margin-left:10px;
-      font-family: 'Mate SC', serif;  
+        margin-right:0.25%;
+        margin-left:0.25%;
+        font-family: 'Mate SC', serif;  
     }
     section {
         border: solid;
@@ -48,23 +48,45 @@
         border: inset;
         padding: 20px;
         background-color: #555;
+        width:75%;
         }
+    .col-right {
+        float:right;
+        width: 70%;
+    }
+    .col-left {
+        border: medium solid;
+        height: 450px;
+        padding: 10px;
+        width: 25%;
+    }
+    footer {
+        left: 40%;
+        top: 500px;
+        position: relative;
+    }
+    .col-left>a {
+        line-height: 50px;
+    }
 </style>
 </head>
 <body>
-    <h1>Welcome to the Arlington Career Center's<br>
-        Cosmetology Program</h1>
+    <h1>Arlington Career Center Cosmetology</h1>
     <section>
     <a class="visit" href="index.html">Home</a>
-   <a class="visit" href="visit_us.html">Visit Us</a> 
+    <a class="visit" href="visit_us.html">Visit Us</a>
     <a class="information" href="price_list.html">Price List</a>
     <a class="cirriculum" href="curriculum.html">Curriculum</a>
-    <a class="additional" href="additional_classes.html">Children and Adult Classes</a>    
+    <a class="additional" href="additional_classes.html">Children and Adult Classes</a>
     <a class="events" href="events.html">Events</a>
     <a class="other" href="other.html">Other</a>
     <a class="information" href="contact_information.html">Contact Information</a>
     </section>
 
+    <h1>Welcome to the Arlington Career Center's<br>
+        Cosmetology Program</h1>
+
+    <div class="col-right">
     <img src="pictures/cutting_peake.jpg"  height="350" width="550" alt="hairstyling">
     <p>The Career Center offers the only cosmetology instruction in the Arlington Public Schools. In this unique program, students learn the science, art and business of cosmetology. Cosmetology skills are both practical and in-demand, projecting a growth rate of 20% over the next ten years in the State of Virginia.<br><br>
 
@@ -77,6 +99,11 @@
     Whether for personal pleasure or professional gain, come learn the latest techniques and styles at the Arlington Career Center.</p>
 
     <br>    
+    </div>
+    <div class="col-left">
+    <a class="visit" href="#">Booking</a> <br>
+    <a class="information" href="contact_information.html">Contact Information</a>
+    </div>
 <footer>
 <a href="http://validator.w3.org/check/referer">
 <strong> HTML </strong> Valid! </a> &nbsp;
