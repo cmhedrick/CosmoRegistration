@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{% block title %}{% endblock %}</title>
+<link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Dawning+of+a+New+Day' rel='stylesheet' type='text/css'>
+<style type="text/css">
+    body {
+        background-color: #87CEEB;
+        text-align: center;
+        font-family:'Mate SC', cursive;
+    }
+
+    h1 {
+        font-family: 'Mate SC', serif;
+        font-size: 40px;
+    }
+    a:hover {
+        background-color:#000;
+        opacity: 0.4;
+    }
+    a:link, a:visited {
+        border: solid;
+        padding: 5px;
+        text-decoration: none;
+        border-radius:10px;
+        color: #FFFFFF;
+        margin-right:0.25%;
+        margin-left:0.25%;
+        font-family: 'Mate SC', serif;  
+    }
+    section {
+        border: solid;
+        background-color: #555;
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .saying {
+        font-family:'Dawning of a New Day', cursive;
+        font-size:30px;
+    }
+    p {
+        text-align: left;
+    }
+    img {
+        border: inset;
+        padding: 20px;
+        background-color: #555;
+        width:75%;
+        }
+    .col-right {
+        float:right;
+        width: 70%;
+    }
+    .col-left {
+        border: medium solid;
+        height: 450px;
+        padding: 10px;
+        width: 25%;
+    }
+    footer {
+        left: 40%;
+        top: 500px;
+        position: relative;
+    }
+    .col-left>a {
+        line-height: 50px;
+    }
+</style>
+</head>
+<body>
+    <h1>Arlington Career Center Cosmetology</h1>
+    <section>
+    <a class="visit" href="/">Home</a>
+    <a class="visit" href="static/visit_us.html">Visit Us</a>
+    <a class="information" href="static/price_list.html">Price List</a>
+    <a class="cirriculum" href="static/curriculum.html">Curriculum</a>
+    <a class="additional" href="static/additional_classes.html">Children and Adult Classes</a>
+    <a class="events" href="static/events.html">Events</a>
+    <a class="other" href="static/other.html">Other</a>
+    <a class="information" href="static/contact_information.html">Contact Information</a>
+    </section>
+
+    <h1>{% block heading %}{% endblock %}</h1>
+
+    {% block content %}
+    {% endblock %}
+<footer>
+<a href="http://validator.w3.org/check/referer">
+<strong> HTML </strong> Valid! </a> &nbsp;
+<a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">
+<strong> CSS </strong> Valid! </a>
+</footer>
+
+</body>
+</html>
