@@ -76,10 +76,11 @@
     <div>
       {% if user.is_authenticated %}
         <a href="/logout/">Logout</a>
-          <span>{{user.username}}</span>
+        <span>{{user.username}}</span>
       {% else %}
         <a href="/login/">Login</a>
-      {% endif %} </div>
+      {% endif %}
+    </div>
     <section>
     <a class="visit" href="/">Home</a>
     <a class="visit" href="static/visit_us.html">Visit Us</a>
