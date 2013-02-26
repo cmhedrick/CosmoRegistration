@@ -1,21 +1,32 @@
 import datetime
 from django.utils import timezone
 from django.db import models
+from django.contrib.auth.models import User
+
+class Appointment(models.Model):
+    user = models.ForeignKey(User)
+    date_time = models.DateTimeField()
+    
+    def __unicode__(self):
+        return "%s %s" % (self.user, self.date_time)
 
 class Consult(models.Model):
     question = models.CharField(max_length=200)
+
     def __unicode__(self):
         return self.question
 
 class TextResponse(models.Model):
     consult = models.ForeignKey(Consult)
     text = models.CharField(max_length=500)
+
     def __unicode__(self):
         return self.text
 
 class Choose(models.Model):
     consult = models.ForeignKey(Consult)
     choose = models.CharField(max_length=200)
+
     def __unicode__(self):
         return self.choose
 
@@ -39,6 +50,7 @@ class Service(models.Model):
     student_prices = models.DecimalField(max_digits=19, decimal_places=10)
     prices = models.DecimalField(max_digits=19, decimal_places=10)
     as_of = models.DateTimeField('date published')
+
     def __unicode__(self):
         return self.hairsevice
 

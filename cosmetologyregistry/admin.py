@@ -1,7 +1,8 @@
 from django.contrib import admin
-from cosmetologyregistry.models import Consult, TextResponse, Choose, Service
+from cosmetologyregistry import models
 
-admin.site.register(Consult)
-admin.site.register(TextResponse)
-admin.site.register(Choose)
-admin.site.register(Service)
+admin.site.register(models.Consult)
+admin.site.register(models.TextResponse)
+admin.site.register(models.Choose)
+admin.site.register(models.Service)
+admin.site.register(models.Appointment)
