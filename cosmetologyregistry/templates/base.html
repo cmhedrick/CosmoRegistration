@@ -73,7 +73,9 @@
 </head>
 <body>
     <h1>Arlington Career Center Cosmetology</h1>
-    <span>Next Appointment: {{nextapt}}</span>
+    {% if user.is_authenticated %}
+      <span>Next Appointment: {{nextapt}}</span>
+    {% endif %}
     <div>
       {% if user.is_authenticated %}
         <a href="/logout/">Logout</a>
