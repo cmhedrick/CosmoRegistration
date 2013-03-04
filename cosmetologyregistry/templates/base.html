@@ -81,7 +81,7 @@
         <a href="/logout/">Logout</a>
         <span>{{user.username}}</span>
       {% else %}
-        <a href="/login/">Login</a>
+        <a href="/login/?next=/{{ request.path }}">Login</a>
       {% endif %}
     </div>
     <section>
