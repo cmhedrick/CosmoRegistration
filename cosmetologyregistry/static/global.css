@@ -59,3 +59,12 @@ footer {
     line-height: 10px;
     text-align: center;
 }
+#userinfo {
+    float: right;
+    width: 26%;
+    display: block;
+    line-height: 200%;
+}
+#usercontainer {
+    height: 66px;
+}
