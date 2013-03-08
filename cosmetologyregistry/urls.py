@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='homepage.html')),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html',}, ),
+    url(r'^visit_us/$', TemplateView.as_view(template_name='visit_us.html')),
 )
