@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^price_list/$', TemplateView.as_view(template_name='price_list.html')),
     url(r'^curriculum/$', TemplateView.as_view(template_name='curriculum.html')),
     url(r'^additional_classes/$', TemplateView.as_view(template_name='additional_classes.html')),
+    url(r'^events/$', TemplateView.as_view(template_name='events.html')),
 )

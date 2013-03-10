@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+<title>{% block title %}Events{% endblock %}</title>
+    {% block heading %}Events{% endblock %}
+    {% block content %}
+<style type="text/css">
+    #lecture {
+        width: auto;
+    }
+    footer {
+        text-align: left;
+    }
+</style>
+    <img id="lecture" src='/static/pictures/lecture.jpg' width='500' height='350' alt='lecture'>
+    <p>Coming Soon!</p>   
+    {% endblock %}
