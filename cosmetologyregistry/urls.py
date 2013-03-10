@@ -12,6 +12,5 @@ urlpatterns = patterns('',
     url(r'^visit_us/$', TemplateView.as_view(template_name='visit_us.html')),
     url(r'^price_list/$', TemplateView.as_view(template_name='price_list.html')),
     url(r'^curriculum/$', TemplateView.as_view(template_name='curriculum.html')),
-
-        
+    url(r'^additional_classes/$', TemplateView.as_view(template_name='additional_classes.html')),
 )
