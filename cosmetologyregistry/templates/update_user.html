@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+<title>{% block title %}Update User{% endblock %}</title>
+{% block heading %}Update User{% endblock %}
+{% block content %}
+<form action="/users/{{object.username}}/" method="POST" >
+  {% csrf_token %}
+
+  {% if form.errors %}
+  <div id="form-error">
+    <ul>
+      {% for field in form %}
+        <li>{{ field.errors|striptags }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% for field in form %}
+    <p>
+    <label> {{ field.label_tag }} </label>
+    {{ field }}
+    </p>
+  {% endfor %}
+  <p>
+    <label>&nbsp;</label>
+    <div>
+      <input type="submit" value="Submit" />
+    </div>
+  </p>
+</form>
+{% endblock %}

@@ -1,8 +1,9 @@
 from django.shortcuts import render_to_response
 import datetime
 from dateutil import parser
+from django.contrib.auth.models import User
 from models import Consult, TextResponse, Choose, Service, Appointment
-from django.views.generic import FormView
+from django.views.generic import FormView, UpdateView
 from django.forms import ModelForm
 
 def nextapt_context(request):
@@ -48,3 +49,23 @@ class MakeAptView(FormView):
 
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(makeapt_form=form))
+
+class UpdateUserForm(ModelForm):
+    class Meta:
+        model = User
+
+class UpdateUserView(UpdateView):
+    form_class = UpdateUserForm
+    model = User
+    template_name = 'update_user.html'
+    
+    def get(self, request, **kwargs):
+        self.object = User.objects.get(username=self.kwargs['pk'])
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        context = self.get_context_data(object=self.object, form=form)
+        return self.render_to_response(context)
+
+    def get_object(self, queryset=None):
+        obj = User.objects.get(username=self.kwargs['pk'])
+        return obj
