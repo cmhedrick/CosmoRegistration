@@ -66,5 +66,15 @@ footer {
     line-height: 200%;
 }
 #usercontainer {
-    height: 66px;
+    height: 122px;
+    background-image: url("/static/pictures/header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#usercontainer p {
+    text-align: right;
+    margin-right: 18px;
+    margin-top: 17px;
+    line-height: 20px;
+    color: white;
 }

@@ -8,17 +8,17 @@
 <link href='/static/global.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <h1>Arlington Career Center Cosmetology</h1>
     <div id="usercontainer">
     <div id="userinfo">
       {% if user.is_authenticated %}
-        <span>Next Appointment: {{nextapt}}</span>
-      {% endif %}
-      {% if user.is_authenticated %}
-        <span>{{user.username}}</span>
-        <a href="/logout/">Logout</a>
+        <p>{{user.username}}
+          <a href="/logout/">Logout</a>
+        </p>
       {% else %}
         <a href="/login/?next=/{{ request.path }}">Login</a>
+      {% endif %}
+      {% if user.is_authenticated %}
+        <p>Next Visit: {{nextapt}}</p>
       {% endif %}
     </div>
     </div>
