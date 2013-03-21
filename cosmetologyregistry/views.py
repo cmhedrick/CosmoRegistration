@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response
 import datetime
 from dateutil import parser
 from django.contrib.auth.models import User
-from models import Consult, TextResponse, Choose, Service, Appointment
+from models import UserProfile, Consult, TextResponse, Choose, Service, Appointment
 from django.views.generic import FormView, UpdateView
 from django.forms import ModelForm
 
@@ -52,20 +52,30 @@ class MakeAptView(FormView):
 
 class UpdateUserForm(ModelForm):
     class Meta:
-        model = User
+        model = UserProfile
+        exclude = ["user"]
 
 class UpdateUserView(UpdateView):
     form_class = UpdateUserForm
-    model = User
+    model = UserProfile
     template_name = 'update_user.html'
     
     def get(self, request, **kwargs):
-        self.object = User.objects.get(username=self.kwargs['pk'])
+        self.object = self.get_object()
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         context = self.get_context_data(object=self.object, form=form)
+        context['pk'] = self.kwargs['pk']
         return self.render_to_response(context)
 
     def get_object(self, queryset=None):
-        obj = User.objects.get(username=self.kwargs['pk'])
+        user = User.objects.get(username=self.kwargs['pk'])
+        objlist = UserProfile.objects.filter(user=user)
+        if objlist:
+            return objlist[0] 
+        obj = UserProfile(user=user)
+        obj.save()
         return obj
+
+    def get_success_url(self):
+        return '/'

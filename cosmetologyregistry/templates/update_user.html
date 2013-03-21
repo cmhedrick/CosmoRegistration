@@ -2,7 +2,7 @@
 <title>{% block title %}Update User{% endblock %}</title>
 {% block heading %}Update User{% endblock %}
 {% block content %}
-<form action="/users/{{object.username}}/" method="POST" >
+<form action="/users/{{object.user.username}}/" method="POST" >
   {% csrf_token %}
 
   {% if form.errors %}

@@ -3,6 +3,10 @@ from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    hair_texture = models.CharField(max_length=200)
+
 class Appointment(models.Model):
     user = models.ForeignKey(User)
     date_time = models.DateTimeField()
