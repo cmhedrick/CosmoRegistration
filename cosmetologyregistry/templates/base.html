@@ -11,7 +11,7 @@
     <div id="usercontainer">
     <div id="userinfo">
       {% if user.is_authenticated %}
-        <p>{{user.username}}
+        <p><a href="/users/{{user.username}}">{{user.username}}</a>
           <a href="/logout/">Logout</a>
         </p>
       {% else %}
