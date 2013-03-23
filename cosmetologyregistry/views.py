@@ -18,7 +18,7 @@ def nextapt_context(request):
         if apt:
             dt = apt[0].date_time.strftime("%b %e %I:%M %p")
         else:
-            dt = "no appointment"
+            dt = ""
     else:
         dt = ""
     return {'nextapt': dt,}

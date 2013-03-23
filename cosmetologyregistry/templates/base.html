@@ -15,10 +15,13 @@
           <a href="/logout/">Logout</a>
         </p>
       {% else %}
-        <a href="/login/?next=/{{ request.path }}">Login</a>
+        <p><a href="/login/?next=/{{ request.path }}">Login</a></p>
       {% endif %}
       {% if user.is_authenticated %}
-        <p>Next Visit: {{nextapt}}</p>
+        {% if nextapt %}
+          <p>Next Visit: {{nextapt}}</p>
+        {% endif %}
+        <p><a class="visit" href="/makeapt">Make Appointment</a></p>
       {% endif %}
     </div>
     </div>
