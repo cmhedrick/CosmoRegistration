@@ -39,10 +39,11 @@ class MakeAptView(FormView):
         return context
 
     def get_success_url(self):
-        return '/'
+        return '/confirmapt?apt=%s' % self.dt 
 
     def form_valid(self, form):
         dt = parser.parse(form.data['date_time'])
+        self.dt = dt.strftime("%b %e %I:%M %p")
         apt = Appointment(user=self.request.user, date_time=dt)
         apt.save()
         return super(MakeAptView, self).form_valid(form)

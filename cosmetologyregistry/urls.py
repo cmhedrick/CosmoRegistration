@@ -16,5 +16,6 @@ urlpatterns = patterns('',
     url(r'^additional_classes/$', TemplateView.as_view(template_name='additional_classes.html')),
     url(r'^events/$', TemplateView.as_view(template_name='events.html')),
     url(r'^makeapt/$', login_required(MakeAptView.as_view())),
+    url(r'^confirmapt/$', TemplateView.as_view(template_name='confirmapt.html')),
     url(r'^users/(?P<pk>\w+)/$', UpdateUserView.as_view()),
 )

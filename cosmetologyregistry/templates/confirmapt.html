@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+<title>{% block title %}Confirmed Appointment{% endblock %}</title>
+{% block heading %}Confirmed Appointment{% endblock %}
+{% block content %}
+<p>Thank you for making an appointment. We look forward to seeing you on {{request.GET.apt}}!</p>
+{% endblock %}
