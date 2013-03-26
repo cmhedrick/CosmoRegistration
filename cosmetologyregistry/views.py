@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from models import UserProfile, Consult, TextResponse, Choose, Service, Appointment
 from django.views.generic import FormView, UpdateView
-from django.forms import ModelForm, Form, CharField
+from django.forms import ModelForm, Form, CharField, PasswordInput
 
 PASSWORD_MISMATCH = 'Username and Password do not match'
 USERNAME_TAKEN = 'Username is taken. Please choose another'
@@ -89,10 +89,10 @@ class LoginForm(Form):
     new_first_name = CharField(label='Your first name')
     new_last_name = CharField(label='Your last name')
     new_username = CharField(label='Your username')
-    new_password = CharField(label='Your password')
-    new_password_confirm = CharField(label='Confirm password')
+    new_password = CharField(label='Your password', widget=PasswordInput)
+    new_password_confirm = CharField(label='Confirm password', widget=PasswordInput)
     existing_username = CharField(label='Your username')
-    existing_password = CharField(label='Your password')
+    existing_password = CharField(label='Your password', widget=PasswordInput)
 
     def clean(self):
         cleaned_data = super(LoginForm, self).clean()
