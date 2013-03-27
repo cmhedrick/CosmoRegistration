@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if form.errors %}
-<p>Please correct the items marked in red below.</p>
+<p class='error'>Please correct the items marked in red below.</p>
 {% endif %}
 <style type="text/css">
     #user-form {
@@ -30,15 +30,6 @@
     .submit-button {
         margin-top: 10px;
     }
-    .table {
-        display: table;
-    }
-    .row {
-        display: table-row;
-    }
-    .cell {
-        display: table-cell;
-    }
     .error {
         color: red;
     }
@@ -47,50 +38,64 @@
 {% csrf_token %}
   <fieldset id="new-user" class="user-block">
     <legend align='center'>Register new user</legend>
-    <div class="table">
-      <div class="row">
-        <div class="cell">{{ form.new_first_name.label_tag }}</div>
-        <div class="cell">{{ form.new_first_name }}</div>
-        <div class="cell error">{{ form.new_first_name.errors }}</div>
-      </div>
-      <div class="row">
-        <div class="cell">{{ form.new_last_name.label_tag }}</div>
-        <div class="cell">{{ form.new_last_name }}</div>
-        <div class="cell error">{{ form.new_last_name.errors }}</div>
-      </div>
-      <div class="row">
-        <div class="cell">{{ form.new_username.label_tag }}</div>
-        <div class="cell">{{ form.new_username }}</div>
-        <div class="cell error">{{ form.new_username.errors }}</div>
-      </div>
-      <div class="row">
-        <div class="cell">{{ form.new_password.label_tag }}</div>
-        <div class="cell">{{ form.new_password }}</div>
-        <div class="cell error">{{ form.new_password.errors }}</div>
-      </div>
-      <div class="row">
-        <div class="cell">{{ form.new_password_confirm.label_tag }}</div>
-        <div class="cell">{{ form.new_password_confirm }}</div>
-        <div class="cell error">{{ form.new_password_confirm.errors }}</div>
-      </div>
-    </div>
+    <table>
+      <tr>
+        <td class="error" colspan='2'>{{ form.new_first_name.errors }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.new_first_name.label_tag }}</td>
+        <td>{{ form.new_first_name }}</td>
+      </tr>
+      <tr>
+        <td class="error" colspan='2'>{{ form.new_last_name.errors }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.new_last_name.label_tag }}</td>
+        <td>{{ form.new_last_name }}</td>
+      </tr>
+      <tr>
+        <td class="error" colspan='2'>{{ form.new_username.errors }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.new_username.label_tag }}</td>
+        <td>{{ form.new_username }}</td>
+      </tr>
+      <tr>
+        <td class="error" colspan='2'>{{ form.new_password.errors }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.new_password.label_tag }}</td>
+        <td>{{ form.new_password }}</td>
+      </tr>
+      <tr>
+        <td class="error" colspan='2'>{{ form.new_password_confirm.errors }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.new_password_confirm.label_tag }}</td>
+        <td>{{ form.new_password_confirm }}</td>
+      </tr>
+    </table>
     <input class="submit-button" type="submit" name="register-button" value="Register" />
   </fieldset>
 
   <fieldset id="existing-user" class="user-block">
     <legend align='center'>Login existing user</legend>
-    <div class="table">
-      <div class="row">
-        <div class="cell">{{ form.existing_username.label_tag }}</div>
-        <div class="cell">{{ form.existing_username }}</div>
-        <div class="cell error">{{ form.existing_username.errors }}</div>
-      </div>
-      <div class="row">
-        <div class="cell">{{ form.existing_password.label_tag }}</div>
-        <div class="cell">{{ form.existing_password }}</div>
-        <div class="cell error">{{ form.existing_password.errors }}</div>
-      </div>
-    </div>
+    <table>
+      <tr>
+        <td class="error" colspan='2'>{{ form.existing_username.errors }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.existing_username.label_tag }}</td>
+        <td>{{ form.existing_username }}</td>
+      </tr>
+      <tr>
+        <td class="error" colspan='2'>{{ form.existing_password.errors }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.existing_password.label_tag }}</td>
+        <td>{{ form.existing_password }}</td>
+      </tr>
+    </table>
     <input class="submit-button" type="submit" name="login-button" value="Login" />
   </fieldset>
   <div class="clear"></div>

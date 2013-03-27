@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from models import UserProfile, Consult, TextResponse, Choose, Service, Appointment
 from django.views.generic import FormView, UpdateView
 from django.forms import ModelForm, Form, CharField, PasswordInput
+from django.forms.util import ErrorList 
 
 PASSWORD_MISMATCH = 'Username and Password do not match'
 USERNAME_TAKEN = 'Username is taken. Please choose another'
@@ -104,10 +105,10 @@ class LoginForm(Form):
             if self.is_valid():
                 objlist = User.objects.filter(username=self.data['new_username'])
                 if objlist:
-                    self.errors['new_username'] = USERNAME_TAKEN
+                    self.errors['new_username'] = ErrorList([USERNAME_TAKEN])
                 else:
                     if self.data['new_password'] != self.data['new_password_confirm']:
-                        self.errors['new_password_confirm'] = PASSWORD_CONFIRM_MISMATCH
+                        self.errors['new_password'] = ErrorList([PASSWORD_CONFIRM_MISMATCH])
         elif 'login-button' in self.data:
             if 'new_first_name' in self.errors:
                 del self.errors['new_first_name']
@@ -125,7 +126,7 @@ class LoginForm(Form):
                     user = objlist[0]
                     if user.check_password(self.data['existing_password']):
                         return cleaned_data
-                self.errors['existing_username'] = PASSWORD_MISMATCH
+                self.errors['existing_username'] = ErrorList([PASSWORD_MISMATCH])
         return cleaned_data
 
 class LoginView(FormView):
