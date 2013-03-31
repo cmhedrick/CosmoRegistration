@@ -1,17 +1,22 @@
-body {
+body.ourbody {
     background-color: #87CEEB;
     text-align: center;
     font-family:'Mate SC', cursive;
+    font-size: 16px;
+    margin: 8px;
+    display: block;
+    color: #000;
 }
-h1 {
+h1.ourh1 {
     font-family: 'Mate SC', serif;
     font-size: 40px;
+    color: #000;
 }
-a:hover {
+a.anchors:hover {
     background-color:#000;
     opacity: 0.4;
 }
-a:link, a:visited {
+a.anchors:link, a.anchors:visited {
     border: solid;
     padding: 5px;
     text-decoration: none;
@@ -22,10 +27,12 @@ a:link, a:visited {
     font-family: 'Mate SC', serif;  
 }
 section {
-    border: solid;
+    border: medium solid black;
     background-color: #555;
     padding: 20px;
     margin: 10px;
+    font-family: 'Mate SC', serif;
+    font-size: 17px;
 }
 .saying {
     font-family:'Dawning of a New Day', cursive;
@@ -34,7 +41,7 @@ section {
 p {
     text-align: left;
 }
-img {
+img.images {
     border: inset;
     padding: 20px;
     background-color: #555;

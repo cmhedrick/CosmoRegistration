@@ -7,34 +7,34 @@
 <link href='http://fonts.googleapis.com/css?family=Dawning+of+a+New+Day' rel='stylesheet' type='text/css'>
 <link href='/static/global.css' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="ourbody">
     <div id="usercontainer">
     <div id="userinfo">
       {% if user.is_authenticated %}
-        <p><a href="/users/{{user.username}}">{{user.username}}</a>
-          <a href="/logout/">Logout</a>
+        <p><a style="color: #fff"href="/users/{{user.username}}">{{user.username}}</a>
+          <a class="anchors" href="/logout/">Logout</a>
         </p>
       {% else %}
-        <p><a href="/login/?next=/{{ request.path }}">Login</a></p>
+        <p><a class="anchors" href="/login/?next=/{{ request.path }}">Login</a></p>
       {% endif %}
       {% if user.is_authenticated %}
         {% if nextapt %}
           <p>Next Visit: {{nextapt}}</p>
         {% endif %}
-        <p><a class="visit" href="/makeaptdate">Make Appointment</a></p>
+        <p><a class="anchors" href="/makeaptdate">Make Appointment</a></p>
       {% endif %}
     </div>
     </div>
     <section>
-    <a class="visit" href="/">Home</a>
-    <a class="visit" href="/visit_us">Visit Us</a>
-    <a class="information" href="/price_list">Price List</a>
-    <a class="cirriculum" href="/curriculum">Curriculum</a>
-    <a class="additional" href="/additional_classes">Children and Adult Classes</a>
-    <a class="events" href="/events">Events</a>
+    <a class="anchors" href="/">Home</a>
+    <a class="anchors" href="/visit_us">Visit Us</a>
+    <a class="anchors" href="/price_list">Price List</a>
+    <a class="anchors" href="/curriculum">Curriculum</a>
+    <a class="anchors" href="/additional_classes">Children and Adult Classes</a>
+    <a class="anchors" href="/events">Events</a>
     </section>
 
-    <h1>{% block heading %}{% endblock %}</h1>
+    <h1 class="ourh1">{% block heading %}{% endblock %}</h1>
 
     {% block content %}
     {% endblock %}
