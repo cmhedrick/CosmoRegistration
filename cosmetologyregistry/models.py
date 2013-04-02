@@ -3,9 +3,31 @@ from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
+GENDER = (
+    ("Male", 'Male'),
+    ("Female", 'Female'),
+)   
+
+SKIN_TYPE = (
+    ("Dry", 'Dry'),
+    ("Oily", 'Oily'),
+    ("Normal", 'Combination'),
+)
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
+    phone_number = models.CharField(max_length=13)
+    gender = models.CharField(max_length=4, choices=GENDER)
+    age = models.IntegerField()
+    heard_from = models.CharField(max_length=300)
+    referrer = models.CharField(max_length=200)
+    last_visit = models.DateTimeField()
+    meds = models.CharField(max_length=300)
+    natural_hair_color = models.CharField(max_length=300)
+    hair_condition = models.CharField(max_length=300)
     hair_texture = models.CharField(max_length=200)
+    scalp_condition = models.CharField(max_length=300)
+    skin_type = models.CharField(max_length=4, choices=SKIN_TYPE)
 
 class Appointment(models.Model):
     user = models.ForeignKey(User)
