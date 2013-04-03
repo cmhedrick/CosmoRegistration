@@ -34,6 +34,16 @@
         color: red;
     }
 </style>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#existing-user input, #new-user input").keypress(function(event) {
+            if (event.which == 13) {
+                $(this).closest("fieldset").find(".submit-button").click();
+                return false;
+            }
+        });
+    });
+</script>
 <form id="user-form" method="post" action="/login/">
 {% csrf_token %}
   <fieldset id="new-user" class="user-block">
