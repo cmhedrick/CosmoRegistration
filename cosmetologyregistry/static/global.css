@@ -88,3 +88,6 @@ footer {
     line-height: 20px;
     color: white;
 }
+a:link.anchor-underline, a:visited.anchor-underline {
+    text-decoration: underline;
+}
