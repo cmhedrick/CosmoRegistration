@@ -12,14 +12,24 @@
 <script type="text/javascript" src="/static/admin/js/actions.js"></script> 
 <script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
 {{ form.fields.apttime.widget.media }}
+<link href='/static/makeapt.css' rel='stylesheet' type='text/css'>
 {% if form.errors %}
 <p class='error'>Please correct the items marked in red below.</p>
 {% endif %}
-<form action="/makeapttime/?aptdate={{request.GET.aptdate}}" method="POST" >
+<form id="makeapt-form" action="/makeapttime/?aptdate={{request.GET.aptdate}}" method="POST" >
   {% csrf_token %}
-  <p>{{ form.apttime.errors }}</p>
-  <p>{{ form.apttime.label }}</p>
-  <p>{{ form.apttime }}</p>
-  <input class="submit-button" type="submit" name="submit-time" value="Submit" />
+  <fieldset>
+    <legend align='center'>Choose Time</legend>
+    <table>
+      <tr>
+        <td class="error" colspan='2'>{{ form.apttime.errors }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.apttime.label }}</td>
+        <td>{{ form.apttime }}</td>
+      </tr>
+    </table>
+    <input class="submit-button" type="submit" name="submit-time" value="Submit" />
+  </fieldset>
 </form>
 {% endblock %}
