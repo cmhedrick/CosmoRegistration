@@ -26,7 +26,7 @@ a.anchors:link, a.anchors:visited {
     margin-left:0.25%;
     font-family: 'Mate SC', serif;  
 }
-a.underline:link, a.underline:visited {
+a:link.anchor-underline, a:visited.anchor-underline {
     text-decoration: underline;
 }
 section {
@@ -88,6 +88,4 @@ footer {
     line-height: 20px;
     color: white;
 }
-a:link.anchor-underline, a:visited.anchor-underline {
-    text-decoration: underline;
-}
+
