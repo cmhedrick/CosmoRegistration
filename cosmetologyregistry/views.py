@@ -145,6 +145,7 @@ class LoginView(FormView):
             username = form.data['new_username']
             password = form.data['new_password']
             user = User.objects.create_user(username, password=password)
+            user.is_staff = True
             user.save()
             user = authenticate(username=username, password=password)
             login(self.request, user)

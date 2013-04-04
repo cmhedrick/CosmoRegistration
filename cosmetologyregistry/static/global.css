@@ -26,6 +26,9 @@ a.anchors:link, a.anchors:visited {
     margin-left:0.25%;
     font-family: 'Mate SC', serif;  
 }
+a.underline:link, a.underline:visited {
+    text-decoration: underline;
+}
 section {
     border: medium solid black;
     background-color: #555;
