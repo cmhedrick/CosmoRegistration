@@ -12,7 +12,8 @@
     <div id="usercontainer">
     <div id="userinfo">
       {% if user.is_authenticated %}
-        <p><a style="color: #fff"href="/users/{{user.username}}">{{user.username}}</a>
+        <p>
+          <a class="underline" style="color: #fff"href="/users/{{user.username}}">{{user.username}}</a>
           <a class="anchors" href="/logout/">Logout</a>
         </p>
       {% else %}
