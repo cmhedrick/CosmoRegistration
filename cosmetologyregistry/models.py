@@ -26,7 +26,7 @@ class UserProfile(models.Model):
     natural_hair_color = models.CharField(blank=True, max_length=300)
     hair_condition = models.CharField(blank=True, max_length=300)
     hair_texture = models.CharField(blank=True, max_length=200)
-    scalp_condition = models.CharField(max_length=300)
+    scalp_condition = models.CharField(blank=True, max_length=300)
     skin_type = models.CharField(blank=True, max_length=4, choices=SKIN_TYPE)
 
 class Appointment(models.Model):
