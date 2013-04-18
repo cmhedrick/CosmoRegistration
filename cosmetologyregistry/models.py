@@ -32,6 +32,7 @@ class UserProfile(models.Model):
 class Appointment(models.Model):
     user = models.ForeignKey(User)
     date_time = models.DateTimeField()
+    skin_regime = models.CharField(max_length=200)
     
     def __unicode__(self):
         return "%s %s" % (self.user, self.date_time)
@@ -79,4 +80,3 @@ class Service(models.Model):
 
     def __unicode__(self):
         return self.hairsevice
-

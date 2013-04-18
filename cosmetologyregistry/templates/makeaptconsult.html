@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+<title>{% block title %}Consultation{% endblock %}</title>
+{% block heading %}Consultation{% endblock %}
+{% block content %}
+<style type="text/css">
+    #user-form {
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+    #user-form fieldset {
+        border: thin solid;
+        width: 50%;
+        padding: 10px;
+        margin-left: 25%;
+    }
+    #user-form legend {
+        padding: 0 10px 0 10px;
+    }
+    .submit-button {
+        margin-top: 10px;
+    }
+    .error {
+        color: red;
+    }
+</style>
+{% if form.errors %}
+<p class='error'>Please correct the items marked in red below.</p>
+{% endif %}
+<form id="makeapt-form" action="/makeaptconsult/?aptdate={{request.GET.aptdate}}&apttime={{request.GET.apttime}}" method="POST" >
+  {% csrf_token %}
+  <fieldset>
+    <legend align='center'>Consultation</legend>
+    <table>
+      {% for field in form %}
+      <tr>
+        <td class="error" colspan='2'>{{ field.errors }}</td>
+      </tr>
+      <tr>
+        <td>{{ field.label_tag }}</td>
+        <td>{{ field }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <input class="submit-button" type="submit" name="submit" value="Submit" />
+  </fieldset>
+</form>
+{% endblock %}

@@ -4,8 +4,9 @@ from dateutil import parser
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib.admin.widgets import AdminDateWidget, AdminTimeWidget
+from django.http import HttpResponseRedirect
 from models import UserProfile, Consult, TextResponse, Choose, Service, Appointment
-from django.views.generic import FormView, UpdateView
+from django.views.generic import FormView, UpdateView, CreateView
 from django.forms import ModelForm, Form, CharField, PasswordInput, DateField, TimeField
 from django.forms.util import ErrorList 
 
@@ -52,14 +53,29 @@ class MakeAptTimeView(FormView):
     form_class = MakeAptTimeForm
 
     def get_success_url(self):
+        return '/makeaptconsult?aptdate=%s&apttime=%s' % (
+            self.request.GET['aptdate'], self.request.POST['apttime'])
+
+class MakeAptConsultForm(ModelForm):
+    class Meta:
+        model = Appointment
+        exclude = ["user", "date_time"]
+
+class MakeAptConsultView(CreateView):
+    template_name = 'makeaptconsult.html'
+    form_class = MakeAptConsultForm
+
+    def get_success_url(self):
         return '/confirmapt?apt=%s' % self.dt 
 
     def form_valid(self, form):
-        dt = parser.parse(self.request.GET['aptdate'] + ' ' + form.data['apttime'])
+        dt = parser.parse(self.request.GET['aptdate'] + ' ' + self.request.GET['apttime'])
         self.dt = dt.strftime("%b %e %I:%M %p")
-        apt = Appointment(user=self.request.user, date_time=dt)
-        apt.save()
-        return super(MakeAptTimeView, self).form_valid(form)
+        self.object = form.save(commit=False)
+        self.object.date_time = dt 
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 class UpdateUserForm(ModelForm):
     class Meta:

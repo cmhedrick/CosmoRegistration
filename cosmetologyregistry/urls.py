@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
-from views import MakeAptDateView, MakeAptTimeView, UpdateUserView, LoginView
+from views import MakeAptDateView, MakeAptTimeView, MakeAptConsultView, UpdateUserView, LoginView
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^events/$', TemplateView.as_view(template_name='events.html')),
     url(r'^makeaptdate/$', login_required(MakeAptDateView.as_view())),
     url(r'^makeapttime/$', login_required(MakeAptTimeView.as_view())),
+    url(r'^makeaptconsult/$', login_required(MakeAptConsultView.as_view())),
     url(r'^confirmapt/$', TemplateView.as_view(template_name='confirmapt.html')),
     url(r'^users/(?P<pk>\w+)/$', UpdateUserView.as_view()),
 )
